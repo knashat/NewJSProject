@@ -1,2 +1,0 @@
-# NewJSProject
-Created with CodeSandbox
