@@ -17,10 +17,11 @@ const products = [
   }
 ];
 
-function getProducts(a) {
+function getProducts() {
   const productCopy = [...products];
   console.log(productCopy);
 }
+
 getProducts();
 
 function valString(text) {
@@ -60,4 +61,5 @@ function UpdateQuantity(productName, nQuantity) {
     }
   }
 }
+
 UpdateQuantity("tomato", 45);
