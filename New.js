@@ -31,7 +31,7 @@ function valString(text) {
 }
 
 function valNumber(number) {
-  if (typeof number !== "number") {
+  if (typeof number !== "") {
     throw new Error(`"${number}" is not a valid number!`);
   }
 }
