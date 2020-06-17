@@ -1,4 +1,4 @@
-//First problem
+//Full name printer
 
 function printFullName(firstName, lastName) {
   console.log(firstName, lastName);
@@ -6,7 +6,7 @@ function printFullName(firstName, lastName) {
 
 printFullName("Amr", "Elsekilly");
 
-//Second problem
+//Age Calculator
 function ageToToday(day, month, year) {
   let birthday = new Date(year, month, day);
   let today = new Date();
@@ -63,23 +63,25 @@ Or ${ageSeconds.toFixed()} seconds`);
 
 ageToToday(24, 6, 1993);
 
-//Third problem
+//Capitalization
 function capitalizeString(string) {
   string = string.split(". ");
   let newSentence = string.map(capitalize);
   function capitalize(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
-  /*let i;
-  for (i = 0; i < string.length; i++) {
-    string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
-  }*/
+  
   console.log(newSentence.join(". "));
 }
 capitalizeString("hello world!");
 capitalizeString("hello world. it's a lovely day. i should go out");
 
-//Fourth problem
+/*let i;
+  for (i = 0; i < string.length; i++) {
+    string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+  }*/
+
+//Oddish vs. Evenish
 function oddishOrEvenish(number) {
   number = number.toString();
   number = number.split("");
@@ -106,7 +108,7 @@ oddishOrEvenish(34);
 oddishOrEvenish(373);
 oddishOrEvenish(4433);
 
-//Fifth problem
+//Seven Boom!
 
 function sevenBoom(array) {
   let found = array.find(findSeven);
@@ -118,29 +120,18 @@ function sevenBoom(array) {
   } else {
     console.log("there is no 7 in the array");
   }
-
-  /*
-  let i;
-
-  for (i = 0; i < array.length; i++) {
-    if (array[i] === 7) {
-      console.log("Boom!");
-    } else {
-      let find = "there is no 7 in the array";
-    }
-  }
-  console.log(find);*/
 }
+
 sevenBoom([1, 2, 3, 4, 5, 6, 7]);
 
 sevenBoom([8, 6, 33, 100]);
 
 sevenBoom([2, 55, 60, 97, 86]);
 
-//Sixth problem
+//Count Number of Identical Arrays
 //I couldn't solve
 function countIdenticalArrays(arr1, arr2, arr3, arr4) {
-  let array = [arr1, arr2, arr3, arr4];
+  
   /*let i;
   let arrayCount = [];
   for (i = 0; i < array.length; i++) {
@@ -150,6 +141,8 @@ function countIdenticalArrays(arr1, arr2, arr3, arr4) {
   }
   console.log(arrayCount);
   */
+  
+  let array = [arr1, arr2, arr3, arr4];
   let arrayCount = [];
   let i;
   let k;
@@ -162,7 +155,7 @@ function countIdenticalArrays(arr1, arr2, arr3, arr4) {
 
 countIdenticalArrays(2, 1, 1, 1);
 
-//Seventh problem
+//How Many Days Between Two Dates
 function getDays(firstDate, secondDate) {
   let diff = (secondDate - firstDate) / (1000 * 60 * 60 * 24);
   console.log(diff);
