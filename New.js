@@ -1,65 +1,60 @@
-const products = [
-  {
-    name: "Pepsi",
-    quantity: 15,
-    type: "unit"
-  },
-  {
-    name: "coffee",
-    quantity: 20,
-    type: "cups"
-  },
+const button = document.querySelector("#Add-todo");
+const button2 = document.querySelector("#Delete-todo");
+const button3 = document.querySelector("#cancel");
+const container = document.querySelector("#container");
+const inputField = document.querySelector("#task-name");
 
-  {
-    name: "tomato",
-    quantity: 30,
-    type: "Kilo"
+let todos = [];
+let time;
+
+button2.addEventListener("click", function(myEvent) {
+  myEvent.stopPropagation();
+
+  if (todos[0] !== undefined) {
+    button2.classList = "button-styles2";
+    button2.innerHTML = "Click Cancel to undo in 10 seconds!";
+
+    time = setTimeout(() => {
+      const lastItem = todos[todos.length - 1];
+      const newTodos = todos.filter(todo => todo !== lastItem);
+      todos = newTodos;
+      renderTodos();
+      button2.classList = "button-styles";
+      button2.innerHTML = "Delete todo";
+    }, 5000);
   }
-];
+});
 
-function getProducts() {
-  const productCopy = [...products];
-  console.log(productCopy);
-}
-
-getProducts();
-
-function valString(text) {
-  if (typeof text !== "string") {
-    throw new Error(`"${text}" is not a valid string!`);
+/*button2.addEventListener("click", function(e) {
+  e.stopPropagation();
+  if (time) {
+    clearTimeout(time);
+    time = 0;
   }
-}
+}); */
 
-function valNumber(number) {
-  if (typeof number !== "") {
-    throw new Error(`"${number}" is not a valid number!`);
+button3.addEventListener("click", function(myEvent) {
+  myEvent.stopPropagation();
+  if (time) {
+    clearTimeout(time);
+    button2.classList = "button-styles";
+    button2.innerHTML = "Delete todo";
   }
-}
+});
 
-function addNewProduct(newProduct, newQuantity, newType) {
-  valString(newProduct);
-  valString(newType);
-  valNumber(newQuantity);
-  products.push({
-    name: newProduct,
-    quantity: newQuantity,
-    type: newType
+const renderTodos = () => {
+  container.innerHTML = "";
+  todos.forEach(todo => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = todo;
+    container.appendChild(listItem);
   });
-  console.log(products);
-}
+};
 
-addNewProduct("chocolate", 10, "bars");
-
-function UpdateQuantity(productName, nQuantity) {
-  valString(productName);
-  valNumber(nQuantity);
-  let i;
-  for (i = 0; i < products.length; i++) {
-    if (products[i].name === productName) {
-      products[i].quantity = nQuantity;
-      return console.log(products);
-    }
-  }
-}
-
-UpdateQuantity("tomato", 45);
+button.addEventListener("click", function(myEvent) {
+  myEvent.stopPropagation();
+  const taskName = inputField.value;
+  todos.push(taskName);
+  renderTodos();
+  inputField.value = "";
+});

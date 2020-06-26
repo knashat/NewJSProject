@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./main.css" />
     <title>Static Template</title>
   </head>
   <body>
-    <script src="./2ndAssignment.js"></script>
+    <div>
+      <label
+        >Task name:
+        <input type="text" id="task-name" placeholder="example task" />
+      </label>
+      <button class="button-styles" id="Add-todo">Add todo</button>
+      <button class="button-styles" id="Delete-todo">Delete todo</button>
+      <button class="button-styles" id="cancel">Cancel</button>
+    </div>
+    <div>
+      <h1>Todos</h1>
+      <ul id="container"></ul>
+    </div>
+    <script src="./New.js"></script>
   </body>
 </html>
