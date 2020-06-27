@@ -25,14 +25,6 @@ button2.addEventListener("click", function(myEvent) {
   }
 });
 
-/*button2.addEventListener("click", function(e) {
-  e.stopPropagation();
-  if (time) {
-    clearTimeout(time);
-    time = 0;
-  }
-}); */
-
 button3.addEventListener("click", function(myEvent) {
   myEvent.stopPropagation();
   if (time) {
